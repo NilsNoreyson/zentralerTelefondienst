@@ -54,11 +54,22 @@ while True:
         print(line)
         if line.split('.')[0]=='rot':
             dir=line.split('.')[1]
+            if ws.connected:
+                pass
+            else:
+                try:
+                    ws.close()
+                except:
+                    pass
+                ws=init_mopidy_websocket()
+
+
             try:
                 if dir=="+":
-                    set_rel_volume(ws,+15)
+                    changeVol=+15
                 elif dir=="-":
-                    set_rel_volume(ws,-15)
+                    changeVol=-15
+                print(set_rel_volume(ws,changeVol))
             except:
                 print('split error')
 
