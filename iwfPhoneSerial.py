@@ -1,6 +1,7 @@
 __author__ = 'peterb'
 
 import serial
+import datetime
 #form mopidy_websocket import *
 from mopidy_websocket import *
 
@@ -27,7 +28,14 @@ def initSerialPort(name):
     ser=serial.Serial(name,115200,timeout=1)
     return ser
 
-
+def reconnect(ws):
+    try:
+        ws.close()
+    except:
+        pass
+    ws=init_mopidy_websocket()
+    return ws
+    
 
 
 
@@ -41,6 +49,7 @@ ws=init_mopidy_websocket()
 print(getVolume(ws))
 print(set_rel_volume(ws,-10))
 
+connectTime=datetime.datetime.now()
 
 while True:
     try:
@@ -54,16 +63,6 @@ while True:
         print(line)
         if line.split('.')[0]=='rot':
             dir=line.split('.')[1]
-            if ws.connected:
-                pass
-            else:
-                try:
-                    ws.close()
-                except:
-                    pass
-                ws=init_mopidy_websocket()
-
-
             try:
                 if dir=="+":
                     changeVol=+15
@@ -72,6 +71,11 @@ while True:
                 print(set_rel_volume(ws,changeVol))
             except:
                 print('split error')
+    if (datetime.datetime.now()-connectTime).total_seconds()>30:
+        print('reconnect')
+        ws=reconnect(ws)
+        connectTime=datetime.datetime.now()
+        
 
 ser.close()
 
