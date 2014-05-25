@@ -12,7 +12,7 @@ def listCommands(ws,filter=False,filterName=""):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.describe"}')
     res=ws.recv()
     res=json.loads(res)
-    print(res)
+    print(res.encode('utf-8',ignore=True))
     for k in res['result']:
         #print(k,res['result'][k])
         if filterName in k or not(filter):
@@ -40,14 +40,15 @@ def set_rel_volume(ws,rel_vol):
 def getPlaylists(ws):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playlists.get_playlists","params": ["True"]}')
     playlistDict={}
-    time.sleep(5)
+    time.sleep(10)
     res=ws.recv()
     res=json.loads(res)
+#    print(res.encode('utf-8',ignore=True))
     playlists=res['result']
     for i,playlist in enumerate(playlists):
         name=playlist['name']
         playlistDict[name]=playlist
-        #print(i,name)
+        print(i,name.encode('ascii','ignore'))
     return playlistDict
 
 

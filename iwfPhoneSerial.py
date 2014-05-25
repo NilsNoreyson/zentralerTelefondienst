@@ -51,7 +51,15 @@ print(getVolume(ws))
 print(set_rel_volume(ws,-10))
 
 connectTime=datetime.datetime.now()
-playlists=getPlaylists(ws)
+
+
+for i in range(30):
+    try:
+        ws.recv()
+    except:
+        break
+
+#playlists=getPlaylists(ws)
 
 
 while True:
@@ -78,10 +86,10 @@ while True:
             number=line.split('.')[1]
             try:
                 number=int(number)
-                if number in list(telefonBuch.keys()):
-                    playname=telefonBuch[number]
-                    print(playname)
-                    playPlaylistName(playname)
+                #if number in list(telefonBuch.keys()):
+                #    playname=telefonBuch[number]
+                #    print(playname)
+                #    playPlaylistName(playname)
             except:
                 print('no entry')
 
@@ -89,7 +97,7 @@ while True:
         print('reconnect')
         ws=reconnect(ws)
         connectTime=datetime.datetime.now()
-        playlists=getPlaylists(ws)
+        #playlists=getPlaylists(ws)
         
 
 ser.close()
