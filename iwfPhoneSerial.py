@@ -82,7 +82,8 @@ while True:
                     playname=telefonBuch[number]
                     print(playname)
                     playPlaylistName(playname)
-
+            except:
+                print('no entry')
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
         print('reconnect')
