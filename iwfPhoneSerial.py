@@ -71,7 +71,7 @@ while True:
                 print(set_rel_volume(ws,changeVol))
             except:
                 print('split error')
-    if (datetime.datetime.now()-connectTime).total_seconds()>30:
+    if (datetime.datetime.now()-connectTime).total_seconds()>300:
         print('reconnect')
         ws=reconnect(ws)
         connectTime=datetime.datetime.now()
