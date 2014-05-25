@@ -77,10 +77,11 @@ while True:
         if line.split('.')[0]=='tel':
             number=line.split('.')[1]
             try:
+                number=int(number)
                 if number in list(telefonBuch.keys()):
-                    playname=telefonBuch[int(number)]
-                    print playname
-                    playPlaylistName(name)
+                    playname=telefonBuch[number]
+                    print(playname)
+                    playPlaylistName(playname)
 
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
