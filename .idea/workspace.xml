@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edfa4c0f-38dc-4d6d-92e1-4dbb4c0a8cd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iwfPhoneSerial.py" afterPath="$PROJECT_DIR$/iwfPhoneSerial.py" />
-    </list>
+    <list default="true" id="edfa4c0f-38dc-4d6d-92e1-4dbb4c0a8cd8" name="Default" comment="" />
     <ignored path="zentralerTelefondienst.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +26,7 @@
       <file leaf-file-name="iwfPhoneSerial.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="19" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.49100256" vertical-offset="904" max-vertical-offset="1500">
+            <state line="85" column="31" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.6627517" vertical-offset="865" max-vertical-offset="1515">
               <folding />
             </state>
           </provider>
@@ -93,6 +91,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -113,7 +112,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,14 +339,18 @@
       <created>1401006673015</created>
       <updated>1401006673015</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge branch 'master' of https://github.com/NilsNoreyson/zentralerTelefondienst&#10;&#10;Conflicts:&#10;&#9;iwfPhoneSerial.py&#10;">
+      <created>1401008146171</created>
+      <updated>1401008146171</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1282" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -361,11 +363,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.4996016" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -393,6 +395,20 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="19" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mopidy_websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="26" selection-start="3144" selection-end="3166" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1485">
@@ -486,7 +502,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="19" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.49100256" vertical-offset="904" max-vertical-offset="1500">
+        <state line="85" column="31" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.6627517" vertical-offset="865" max-vertical-offset="1515">
           <folding />
         </state>
       </provider>
