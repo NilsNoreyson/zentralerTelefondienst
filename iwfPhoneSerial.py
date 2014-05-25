@@ -51,6 +51,8 @@ print(getVolume(ws))
 print(set_rel_volume(ws,-10))
 
 connectTime=datetime.datetime.now()
+playlists=getPlaylists(ws)
+
 
 while True:
     try:
@@ -78,12 +80,14 @@ while True:
                 if number in list(telefonBuch.keys()):
                     playname=telefonBuch[int(number)]
                     print playname
+                    playPlaylistName(name)
 
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
         print('reconnect')
         ws=reconnect(ws)
         connectTime=datetime.datetime.now()
+        playlists=getPlaylists(ws)
         
 
 ser.close()

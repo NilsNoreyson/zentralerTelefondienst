@@ -78,6 +78,16 @@ def filterPlaylists(playlists,name):
     filteredPlaylistNames=[p for p in list(playlists.keys()) if (name in p)]
     return filteredPlaylistNames
 
+def playPlaylistName(name):
+    clearTracklist(ws)
+    nameLists=filterPlaylists(playlists,name)
+    for playlistName in nameLists:
+        print(playlistName)
+        playlist=playlists[playlistName]
+        addPlaylist(ws,playlist)
+    playTracklist(ws)
+
+
 if __name__=='__main__':
     ws=init_mopidy_websocket()
     #ws=init_mopidy_websocket(add='ws://127.0.0.1',port=6680)
@@ -91,16 +101,10 @@ if __name__=='__main__':
     #res=ws.recv()
     #print(res)
 
-
+    name='anton'
     playlists=getPlaylists(ws)
     print(list(playlists.keys()))
-    clearTracklist(ws)
-    antonLists=filterPlaylists(playlists,'anton')
-    for playlistName in antonLists:
-        print(playlistName)
-        playlist=playlists[playlistName]
-        addPlaylist(ws,playlist)
-    playTracklist(ws)
+    playPlaylistName(name)
 
     ws.close()
 
