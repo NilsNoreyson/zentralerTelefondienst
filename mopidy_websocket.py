@@ -8,7 +8,6 @@ def init_mopidy_websocket(add='ws://192.168.13.30',port=80,path="/mopidy/ws/",ti
     ws=websocket.create_connection('%s:%i%s'%(add,port,path),timeout=timeout)
     return ws
 
-
 def listCommands(ws,filter=False,filterName=""):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.describe"}')
     res=ws.recv()
@@ -40,22 +39,44 @@ def set_rel_volume(ws,rel_vol):
 
 def getPlaylists(ws):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playlists.get_playlists","params": ["True"]}')
+    playlistDict={}
     time.sleep(5)
     res=ws.recv()
     res=json.loads(res)
     playlists=res['result']
     for i,playlist in enumerate(playlists):
-        print(i,playlist['name'])
-    return playlists
+        name=playlist['name']
+        playlistDict[name]=playlist
+        #print(i,name)
+    return playlistDict
 
-def addPlaylist(index=0):
-    tracks=playlists[index]['tracks']
+
+
+def addPlaylist(ws,playlist):
+    tracks=playlist['tracks']
     tracks=json.dumps(tracks)
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add","params": [%s]}'%tracks)
     res=ws.recv()
     print(res)
 
+def clearTracklist(ws):
+    ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.clear","params": []}')
+    res=ws.recv()
+    print(res)
 
+def clearTracklist(ws):
+    ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.clear","params": []}')
+    res=ws.recv()
+    print(res)
+
+def playTracklist(ws):
+    ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playback.play","params": []}')
+    res=ws.recv()
+    print(res)
+
+def filterPlaylists(playlists,name):
+    filteredPlaylistNames=[p for p in list(playlists.keys()) if (name in p)]
+    return filteredPlaylistNames
 
 if __name__=='__main__':
     ws=init_mopidy_websocket()
@@ -64,7 +85,7 @@ if __name__=='__main__':
     #print(getVolume(ws))
     listCommands(ws,filter=True,filterName="playlist")
     listCommands(ws,filter=True,filterName="track")
-    #listCommands(ws)
+    listCommands(ws,filter=True,filterName="playback")
 
     #ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playback.get_current_track", "params":[]}')
     #res=ws.recv()
@@ -72,11 +93,14 @@ if __name__=='__main__':
 
 
     playlists=getPlaylists(ws)
-
-    print(playlists[0]['name'])
-
-    addPlaylist(index=0)
-
+    print(list(playlists.keys()))
+    clearTracklist(ws)
+    antonLists=filterPlaylists(playlists,'anton')
+    for playlistName in antonLists:
+        print(playlistName)
+        playlist=playlists[playlistName]
+        addPlaylist(ws,playlist)
+    playTracklist(ws)
 
     ws.close()
 
