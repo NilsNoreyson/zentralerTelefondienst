@@ -10,6 +10,7 @@ add='ws://192.168.13.30'
 port=80
 
 
+telefonBuch={3:'anton'}
 
 def get_USBPort_name():
     name=None
@@ -71,6 +72,14 @@ while True:
                 print(set_rel_volume(ws,changeVol))
             except:
                 print('split error')
+        if line.split('.')[0]=='tel':
+            number=line.split('.')[1]
+            try:
+                if number in list(telefonBuch.keys()):
+                    playname=telefonBuch[int(number)]
+                    print playname
+
+
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
         print('reconnect')
         ws=reconnect(ws)
