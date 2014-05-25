@@ -74,10 +74,14 @@ while True:
                 print('split error')
         if line.split('.')[0]=='tel':
             number=line.split('.')[1]
+            print(number)
             try:
-                if number in list(telefonBuch.keys()):
-                    playname=telefonBuch[int(number)]
-                    print playname
+                number=int(number)
+                if (number in list(telefonBuch.keys())):
+                    playname=telefonBuch[number]
+                    print(playname)
+            except:
+                print('no entry')
 
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
