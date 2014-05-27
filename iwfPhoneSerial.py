@@ -6,13 +6,26 @@ import datetime
 from mopidy_websocket import *
 
 
-add='ws://192.168.13.30'
-add='ws://127.0.0.1'
-port=6680
+mopidyAddress = 'ws://192.168.13.30'
+mopidyPort = 80
 
 
-telefonBuch={9:'Toystore',
-             3:'anton'}
+Mopidy = MopidyPythonClient(mopidyAddress, mopidyPort)
+Mopidy.update_playlist_dict(0)
+
+
+telefonBuch={9: 'Toystore',
+             3: 'anton',
+             1: 'Stan',
+             7: 'Kalkbrenner',
+             2: 'Hit Box',
+             4: 'The Katie Melua Collection',
+             6: 'IRM',
+             5: 'Anthems of All',
+             8: 'Broken Bells',
+             0: 'Another Self Portrait'
+
+            }
 
 def get_USBPort_name():
     name=None
@@ -91,16 +104,16 @@ while True:
             if number in list(telefonBuch.keys()):
                 playname=telefonBuch[number]
                 print(playname)
-                playPlaylistName(ws,playlists,playname)
+                Mopidy.play_playlist_by_name(playname)
             else:
                 print('no entry')
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
         print('reconnect')
-        ws=reconnect(ws)
+        Mopidy.reconnect()
         connectTime=datetime.datetime.now()
         try:
-            playlists=getPlaylists(ws)
+            Mopidy.update_playlist_dict()
         except:
             pass
         
