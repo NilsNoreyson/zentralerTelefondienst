@@ -48,9 +48,7 @@ class MopidyPythonClient:
         start_time = time.time()
         while (time.time()-start_time)<10:
             res = self.ws.recv()
-            print(res)
             res = json.loads(res)
-            print(res)
             if ('id' in res) and id:
                 if res['id'] == id:
                     return res
@@ -128,7 +126,7 @@ class MopidyPythonClient:
         for i, playlist in enumerate(playlists):
             name = playlist['name']
             playlists_dict[name] = playlist
-            print(i,name)
+            #print(i,name)
             #print(i,name.encode('utf-8','ignore'))
         return playlists_dict
 
@@ -141,7 +139,7 @@ class MopidyPythonClient:
         tracks = json.dumps(tracks)
         self.ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add","params": [%s]}' % tracks)
         res = self.ws.recv()
-        print(res)
+        #print(res)
 
     def clear_tracklist(self):
         self.ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.clear","params": []}')
@@ -151,7 +149,7 @@ class MopidyPythonClient:
     def play_tracklist(self):
         self.ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playback.play","params": []}')
         res = self.ws.recv()
-        print(res)
+        #print(res)
 
     def get_filtered_playlists_names(self, name):
         filtered_playlist_names = [p for p in list(self.playlist_dict.keys()) if (name in p)]
@@ -161,7 +159,7 @@ class MopidyPythonClient:
         self.clear_tracklist()
         playlist_namelist = self.get_filtered_playlists_names(name)
         for playlist_name in playlist_namelist:
-            print(playlist_name)
+            #print(playlist_name)
             playlist_object = self.playlist_dict[playlist_name]
             self.add_playlist_to_tracklist(playlist_object)
         self.play_tracklist()

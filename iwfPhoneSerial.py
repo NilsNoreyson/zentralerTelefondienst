@@ -59,21 +59,9 @@ serialName=get_USBPort_name()
 if serialName:
     ser=initSerialPort(serialName)
 
-#ws=init_mopidy_websocket(add,port)
-ws=init_mopidy_websocket(add,port)
-#print(set_rel_volume(ws,-10))
-listCommands(ws,filter=True,filterName="playback")
-playlists=getPlaylists(ws)
 
 
 connectTime=datetime.datetime.now()
-
-
-for i in range(30):
-    try:
-        ws.recv()
-    except:
-        break
 
 
 
