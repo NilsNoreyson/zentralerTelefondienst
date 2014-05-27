@@ -10,7 +10,8 @@ add='ws://192.168.13.30'
 port=80
 
 
-telefonBuch={3:'anton'}
+telefonBuch={9:'Toystore',
+             3:'anton'}
 
 def get_USBPort_name():
     name=None
@@ -47,8 +48,9 @@ if serialName:
 #ws=init_mopidy_websocket(add,port)
 ws=init_mopidy_websocket()
 #print(set_rel_volume(ws,-10))
-print(getVolume(ws))
-print(set_rel_volume(ws,-10))
+listCommands(ws,filter=True,filterName="playback")
+playlists=getPlaylists(ws)
+
 
 connectTime=datetime.datetime.now()
 
@@ -59,7 +61,6 @@ for i in range(30):
     except:
         break
 
-#playlists=getPlaylists(ws)
 
 
 while True:
@@ -84,20 +85,22 @@ while True:
                 print('split error')
         if line.split('.')[0]=='tel':
             number=line.split('.')[1]
-            try:
-                number=int(number)
-                #if number in list(telefonBuch.keys()):
-                #    playname=telefonBuch[number]
-                #    print(playname)
-                #    playPlaylistName(playname)
-            except:
+            number=int(number)
+            if number in list(telefonBuch.keys()):
+                playname=telefonBuch[number]
+                print(playname)
+                playPlaylistName(ws,playlists,playname)
+            else:
                 print('no entry')
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
         print('reconnect')
         ws=reconnect(ws)
         connectTime=datetime.datetime.now()
-        #playlists=getPlaylists(ws)
+        try:
+            playlists=getPlaylists(ws)
+        except:
+            pass
         
 
 ser.close()

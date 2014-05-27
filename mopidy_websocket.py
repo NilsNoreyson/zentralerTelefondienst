@@ -12,7 +12,7 @@ def listCommands(ws,filter=False,filterName=""):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.describe"}')
     res=ws.recv()
     res=json.loads(res)
-    print(res.encode('utf-8',ignore=True))
+    #print(res.encode('utf-8',ignore=True))
     for k in res['result']:
         #print(k,res['result'][k])
         if filterName in k or not(filter):
@@ -40,7 +40,7 @@ def set_rel_volume(ws,rel_vol):
 def getPlaylists(ws):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playlists.get_playlists","params": ["True"]}')
     playlistDict={}
-    time.sleep(10)
+    time.sleep(8)
     res=ws.recv()
     res=json.loads(res)
 #    print(res.encode('utf-8',ignore=True))
@@ -48,7 +48,7 @@ def getPlaylists(ws):
     for i,playlist in enumerate(playlists):
         name=playlist['name']
         playlistDict[name]=playlist
-        print(i,name.encode('ascii','ignore'))
+        #print(i,name.encode('ascii','ignore'))
     return playlistDict
 
 
@@ -58,32 +58,32 @@ def addPlaylist(ws,playlist):
     tracks=json.dumps(tracks)
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.add","params": [%s]}'%tracks)
     res=ws.recv()
-    print(res)
+    #print(res)
 
 def clearTracklist(ws):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.clear","params": []}')
     res=ws.recv()
-    print(res)
+    #print(res)
 
 def clearTracklist(ws):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.tracklist.clear","params": []}')
     res=ws.recv()
-    print(res)
+    #print(res)
 
 def playTracklist(ws):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.playback.play","params": []}')
     res=ws.recv()
-    print(res)
+    #print(res)
 
 def filterPlaylists(playlists,name):
     filteredPlaylistNames=[p for p in list(playlists.keys()) if (name in p)]
     return filteredPlaylistNames
 
-def playPlaylistName(name):
+def playPlaylistName(ws,playlists,name):
     clearTracklist(ws)
     nameLists=filterPlaylists(playlists,name)
     for playlistName in nameLists:
-        print(playlistName)
+        #print(playlistName)
         playlist=playlists[playlistName]
         addPlaylist(ws,playlist)
     playTracklist(ws)
@@ -104,8 +104,8 @@ if __name__=='__main__':
 
     name='anton'
     playlists=getPlaylists(ws)
-    print(list(playlists.keys()))
-    playPlaylistName(name)
+    #print(list(playlists.keys()))
+    playPlaylistName(ws,playlists,name)
 
     ws.close()
 
