@@ -44,16 +44,6 @@ def initSerialPort(name):
     ser=serial.Serial(name,115200,timeout=1)
     return ser
 
-def reconnect(ws):
-    try:
-        ws.close()
-    except:
-        pass
-    ws=init_mopidy_websocket(add,port)
-    return ws
-    
-
-
 
 serialName=get_USBPort_name()
 if serialName:
@@ -68,12 +58,12 @@ connectTime=datetime.datetime.now()
 while True:
     try:
         line=ser.readline()
-        print(line)
+        line=line.decode()
+        line=line.strip()
     except:
         print('serial readError')
         line=""
-    line=str(line,encoding='utf-8')
-    line=line.strip()
+    
     if line!="":
         print(line)
         if line.split('.')[0]=='rot':
@@ -83,7 +73,7 @@ while True:
                     changeVol=+15
                 elif dir=="-":
                     changeVol=-15
-                print(set_rel_volume(ws,changeVol))
+                print(Mopidy.set_rel_volume(changeVol))
             except:
                 print('split error')
         if line.split('.')[0]=='tel':
