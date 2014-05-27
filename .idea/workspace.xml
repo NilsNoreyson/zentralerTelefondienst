@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edfa4c0f-38dc-4d6d-92e1-4dbb4c0a8cd8" name="Default" comment="" />
+    <list default="true" id="edfa4c0f-38dc-4d6d-92e1-4dbb4c0a8cd8" name="Default" comment="Merge branch 'master' of https://github.com/NilsNoreyson/zentralerTelefondienst&#10;&#10;Conflicts:&#10;&#9;iwfPhoneSerial.py&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unittests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iwfPhoneSerial.py" afterPath="$PROJECT_DIR$/iwfPhoneSerial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mopidy_websocket.py" afterPath="$PROJECT_DIR$/mopidy_websocket.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="zentralerTelefondienst.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +31,7 @@
       <file leaf-file-name="iwfPhoneSerial.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="31" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.6627517" vertical-offset="865" max-vertical-offset="1515">
+            <state line="75" column="16" selection-start="1291" selection-end="1291" vertical-scroll-proportion="-0.05639098" vertical-offset="1125" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -35,8 +40,19 @@
       <file leaf-file-name="mopidy_websocket.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mopidy_websocket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="26" selection-start="3144" selection-end="3166" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1740">
+            <state line="6" column="0" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1830">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unittests.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unittests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="16" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,12 +66,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/mopidy_websocket.py" />
         <option value="$PROJECT_DIR$/iwfPhoneSerial.py" />
+        <option value="$PROJECT_DIR$/mopidy_websocket.py" />
+        <option value="$PROJECT_DIR$/unittests.py" />
       </list>
     </option>
   </component>
@@ -122,13 +144,14 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="/usr/bin/python" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.mopidy_websocket">
+  <component name="RunManager" selected="Python.unittests">
     <configuration default="false" name="mopidy_websocket" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -162,6 +185,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="zentralerTelefondienst" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iwfPhoneSerial.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="unittests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="zentralerTelefondienst" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/unittests.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -288,14 +329,16 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.mopidy_websocket" />
       <item index="1" class="java.lang.String" itemvalue="Python.iwfPhoneSerial" />
+      <item index="2" class="java.lang.String" itemvalue="Python.unittests" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.mopidy_websocket" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.unittests" />
         <item index="1" class="java.lang.String" itemvalue="Python.iwfPhoneSerial" />
+        <item index="2" class="java.lang.String" itemvalue="Python.mopidy_websocket" />
       </list>
     </recent_temporary>
   </component>
@@ -348,26 +391,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1282" height="774" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990461" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47058824" sideWeight="0.5003984" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47058824" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5246423" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.4996016" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -395,6 +438,48 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="16" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mopidy_websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="17" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="31" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="1515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mopidy_websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="26" selection-start="3144" selection-end="3166" vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="31" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="1515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mopidy_websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="26" selection-start="3144" selection-end="3166" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="19" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="1500">
@@ -493,16 +578,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/unittests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mopidy_websocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="26" selection-start="3144" selection-end="3166" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1740">
+        <state line="6" column="0" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1830">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iwfPhoneSerial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="31" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.6627517" vertical-offset="865" max-vertical-offset="1515">
+        <state line="75" column="16" selection-start="1291" selection-end="1291" vertical-scroll-proportion="-0.05639098" vertical-offset="1125" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>

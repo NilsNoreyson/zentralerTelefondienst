@@ -4,14 +4,21 @@ import websocket
 import json
 import time
 
-def init_mopidy_websocket(add='ws://192.168.13.30',port=80,path="/mopidy/ws/",timeout=1):
-    ws=websocket.create_connection('%s:%i%s'%(add,port,path),timeout=timeout)
-    return ws
+
+
+class MopidyPythonClient(add='ws://192.168.13.30',port=80,path="/mopidy/ws/",timeout=1):
+
+    def __init__(self):
+        self.data = []
+
+    def init_mopidy_websocket(add='ws://192.168.13.30',port=80,path="/mopidy/ws/",timeout=1):
+        ws=websocket.create_connection('%s:%i%s'%(add,port,path),timeout=timeout)
+        return ws
 
 def listCommands(ws,filter=False,filterName=""):
     ws.send('{"jsonrpc": "2.0", "id": 1, "method": "core.describe"}')
-    res=ws.recv()
-    res=json.loads(res)
+    res = ws.recv()
+    res = json.loads(res)
     #print(res.encode('utf-8',ignore=True))
     for k in res['result']:
         #print(k,res['result'][k])

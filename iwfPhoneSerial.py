@@ -7,7 +7,8 @@ from mopidy_websocket import *
 
 
 add='ws://192.168.13.30'
-port=80
+add='ws://127.0.0.1'
+port=6680
 
 
 telefonBuch={9:'Toystore',
@@ -35,7 +36,7 @@ def reconnect(ws):
         ws.close()
     except:
         pass
-    ws=init_mopidy_websocket()
+    ws=init_mopidy_websocket(add,port)
     return ws
     
 
@@ -46,7 +47,7 @@ if serialName:
     ser=initSerialPort(serialName)
 
 #ws=init_mopidy_websocket(add,port)
-ws=init_mopidy_websocket()
+ws=init_mopidy_websocket(add,port)
 #print(set_rel_volume(ws,-10))
 listCommands(ws,filter=True,filterName="playback")
 playlists=getPlaylists(ws)
@@ -66,6 +67,7 @@ for i in range(30):
 while True:
     try:
         line=ser.readline()
+        print(line)
     except:
         print('serial readError')
         line=""
