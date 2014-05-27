@@ -1,10 +1,14 @@
 import random
 import unittest
+import mopidy_websocket
 
 class TestSequenceFunctions(unittest.TestCase):
 
     def setUp(self):
         self.seq = range(10)
+
+    def test_init_connection(self):
+        ws=MopidyPythonClient(add='ws://192.168.13.30',port=80,path="/mopidy/ws/",timeout=1)
 
     def test_shuffle(self):
         # make sure the shuffled sequence does not lose any elements
