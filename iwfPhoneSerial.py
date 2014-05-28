@@ -73,7 +73,10 @@ while True:
                     changeVol=+15
                 elif dir=="-":
                     changeVol=-15
-                print(Mopidy.set_rel_volume(changeVol))
+                try:
+                    print(Mopidy.set_rel_volume(changeVol))
+                except:
+                    print('setting volume failed')
             except:
                 print('split error')
         if line.split('.')[0]=='tel':
@@ -82,15 +85,19 @@ while True:
             if number in list(telefonBuch.keys()):
                 playname=telefonBuch[number]
                 print(playname)
-                Mopidy.play_playlist_by_name(playname)
+                try:
+                    Mopidy.play_playlist_by_name(playname)
+                except:
+                    print('Starting playlis failed')
+
             else:
                 print('no entry')
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
-        print('reconnect')
-        Mopidy.reconnect()
-        connectTime=datetime.datetime.now()
-        try:
+       try:
+            print('reconnect')
+            Mopidy.reconnect()
+            connectTime=datetime.datetime.now()
             Mopidy.update_playlist_dict()
         except:
             pass
