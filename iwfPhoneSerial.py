@@ -94,7 +94,7 @@ while True:
                 print('no entry')
 
     if (datetime.datetime.now()-connectTime).total_seconds()>300:
-       try:
+        try:
             print('reconnect')
             Mopidy.reconnect()
             connectTime=datetime.datetime.now()
