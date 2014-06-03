@@ -2,17 +2,26 @@ __author__ = 'peterb'
 
 import serial
 import datetime
-#form mopidy_websocket import *
-from mopidy_websocket import *
+from mpd import MPDClient
 
+mopidyAddress = '192.168.13.13'
+mopidyPort = 6600
 
-mopidyAddress = 'ws://192.168.13.30'
-mopidyPort = 80
+client=MPDClient()
+playlists={}
 
-
-Mopidy = MopidyPythonClient(mopidyAddress, mopidyPort)
-Mopidy.update_playlist_dict(0)
-
+def reconnect():
+    global client
+    global playlists
+    try:
+        client.disconnect()
+    except:
+        pass
+    client.timeout = 10
+    client.idletimeout = None
+    client.connect(mopidyAddress,mopidyPort)
+    client.password('IlPits2013')
+    playlists=client.listplaylists()
 
 telefonBuch={9: 'Toystore',
              3: 'anton',
@@ -26,6 +35,21 @@ telefonBuch={9: 'Toystore',
              0: 'Another Self Portrait'
 
             }
+def getFilteredPlaylists(playlists,filterName):
+    fPlaylists=[]
+    for p in playlists:
+        if filterName in p['playlist']:
+            fPlaylists.append(p)
+            print(p['playlist'])
+    return fPlaylists
+
+def playByName(name, playlists):
+    client.clear()
+    fPlaylists=getFilteredPlaylists(playlists,name)
+    for p in fPlaylists:
+        client.load(p['playlist'])
+    client.play()
+
 
 def get_USBPort_name():
     name=None
@@ -51,18 +75,16 @@ if serialName:
 
 
 
-connectTime=datetime.datetime.now()
 
+reconnect()
+connectTime=datetime.datetime.now()
+playByName('anton',playlists)
 
 
 while True:
-    try:
-        line=ser.readline()
-        line=line.decode()
-        line=line.strip()
-    except:
-        print('serial readError')
-        line=""
+    line=ser.readline()
+    line=line.decode()
+    line=line.strip()
     
     if line!="":
         print(line)
@@ -70,11 +92,15 @@ while True:
             dir=line.split('.')[1]
             try:
                 if dir=="+":
-                    changeVol=+15
+                    changeVol=+5
                 elif dir=="-":
-                    changeVol=-15
+                    changeVol=-5
+
+                stat=client.status()
+                vol=int(stat['volume'])
+
                 try:
-                    print(Mopidy.set_rel_volume(changeVol))
+                    client.setvol(vol+changeVol)
                 except:
                     print('setting volume failed')
             except:
@@ -86,21 +112,21 @@ while True:
                 playname=telefonBuch[number]
                 print(playname)
                 try:
-                    Mopidy.play_playlist_by_name(playname)
+                    playByName(playname, playlists)
                 except:
                     print('Starting playlis failed')
 
             else:
                 print('no entry')
 
-    if (datetime.datetime.now()-connectTime).total_seconds()>300:
+    if (datetime.datetime.now()-connectTime).total_seconds()>30:
         try:
             print('reconnect')
-            Mopidy.reconnect()
-            connectTime=datetime.datetime.now()
-            Mopidy.update_playlist_dict()
+            reconnect()
+            client.clearerror()
         except:
             pass
+        connectTime=datetime.datetime.now()
         
 
 ser.close()

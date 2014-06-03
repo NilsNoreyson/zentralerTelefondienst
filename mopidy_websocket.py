@@ -47,7 +47,11 @@ class MopidyPythonClient:
     def read_response(self,id=None):
         start_time = time.time()
         while (time.time()-start_time)<10:
-            res = self.ws.recv()
+            try:
+                res = self.ws.recv()
+            except:
+                print('no answer')
+                return None
             res = json.loads(res)
             if ('id' in res) and id:
                 if res['id'] == id:
@@ -166,18 +170,18 @@ class MopidyPythonClient:
 
 
 if __name__ == '__main__':
-    mopidyAddress = 'ws://192.168.13.30'
+    mopidyAddress = 'ws://192.168.13.13'
     mopidyPort = 80
     #add='ws://127.0.0.1'
     #port=6680
 
     Mopidy = MopidyPythonClient(mopidyAddress, mopidyPort)
-    # Mopidy.list_commands()
+    Mopidy.list_commands()
     Mopidy.update_playlist_dict(0)
     Mopidy.play_playlist_by_name("Stan")
     Mopidy.reconnect()
     time.sleep(3)
     Mopidy.play_playlist_by_name("Stan")
-    # ws.close()
+    Mopidy.ws.close()
     #
 
