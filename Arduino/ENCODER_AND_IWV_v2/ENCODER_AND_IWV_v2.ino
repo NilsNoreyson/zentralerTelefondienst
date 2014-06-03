@@ -9,7 +9,7 @@
 #define encoder0PinA  2
 #define encoder0PinB  3
 
-volatile unsigned int rotCountLimit = 5;
+volatile unsigned int rotCountLimit = 3;
 volatile unsigned int rotCount = 0;
 volatile unsigned int rotDir = 100;
 volatile unsigned int encoder0Pos = 0;
@@ -29,9 +29,9 @@ unsigned long int signalzeit = 0;
 unsigned long int keinsignalzeit = 0;
 
 unsigned long int auszeit = 200;
-unsigned long int zwischenzeit = 300;
+unsigned long int zwischenzeit = 600;
 
-int midValue = 900; // der Schwellenwert um aufgelegt (LOW) von abgenommen (HIGH) zu unterscheiden
+int midValue = 1000; // der Schwellenwert um aufgelegt (LOW) von abgenommen (HIGH) zu unterscheiden
 
 boolean dialing = false;
 boolean aufgelegt = false;
@@ -133,10 +133,10 @@ void doEncoder() {
   }
 //  Serial.println(rotDir);
   if (rotCount>rotCountLimit){
-    if (rotDir>102) {
+    if (rotDir>101) {
       Serial.println ("rot.+");
     }
-    if (rotDir<98){
+    if (rotDir<99){
       Serial.println ("rot.-");
     }
     rotDir=100;
