@@ -33,7 +33,8 @@ telefonBuch={9: 'Toystore',
              5: 'Anthems of All',
              8: 'Broken Bells',
              0: 'Another Self Portrait',
-             145:'Extrawelt'
+             145:'Extrawelt',
+             333:'Streets',
 
             }
 def getFilteredPlaylists(playlists,filterName):
@@ -99,7 +100,6 @@ if serialName:
 
 reconnect()
 connectTime=datetime.datetime.now()
-playByName('anton',playlists)
 
 
 actionTime=False
